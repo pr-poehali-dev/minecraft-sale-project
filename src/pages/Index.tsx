@@ -67,6 +67,7 @@ export default function Index() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [addedId, setAddedId] = useState<number | null>(null);
+  const [successOpen, setSuccessOpen] = useState(false);
 
   const addToCart = (item: DonateItem) => {
     setCart((prev) => {
@@ -289,6 +290,7 @@ export default function Index() {
                   </span>
                 </div>
                 <button
+                  onClick={() => { setCartOpen(false); setCart([]); setSuccessOpen(true); }}
                   className="w-full pixel-btn pixel-btn-gold py-3 font-bold text-black"
                   style={{ background: "#c8920a", fontFamily: "'Press Start 2P', monospace", fontSize: 9 }}
                 >
@@ -296,6 +298,58 @@ export default function Index() {
                 </button>
               </div>
             )}
+          </div>
+        </div>
+      )}
+      {/* Success Modal */}
+      {successOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ background: "rgba(0,0,0,0.75)" }}>
+          <div className="fade-in-up w-full max-w-sm flex flex-col items-center text-center p-8 gap-5"
+            style={{
+              background: "hsl(120,20%,9%)",
+              border: "3px solid",
+              borderColor: "#ffd700 #b8860b #b8860b #ffd700",
+              boxShadow: "inset 2px 2px 0 rgba(255,255,255,0.08), inset -2px -2px 0 rgba(0,0,0,0.4), 0 0 40px rgba(255,215,0,0.25), 6px 6px 0 rgba(0,0,0,0.7)",
+            }}>
+            {/* Icon */}
+            <div className="float-anim text-6xl">✅</div>
+
+            <div style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 13, color: "#ffd700", textShadow: "2px 2px 0 #7a5a00", lineHeight: 2 }}>
+              ОПЛАТА<br />ПРОШЛА!
+            </div>
+
+            <p className="text-gray-300 text-sm leading-relaxed">
+              Твой донат поступит на аккаунт в течение
+            </p>
+
+            <div className="w-full py-3 px-4" style={{
+              background: "rgba(45,90,26,0.25)",
+              border: "2px solid #2d5a1a",
+            }}>
+              <p style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 11, color: "#7ab84a", lineHeight: 2 }}>
+                ⏱ 5 минут — 2 часа
+              </p>
+            </div>
+
+            <ul className="text-left w-full space-y-2">
+              {[
+                "Зайди на сервер под своим ником",
+                "Если через 2 часа не пришло — напиши в поддержку",
+              ].map((t) => (
+                <li key={t} className="flex gap-2 text-xs text-gray-400">
+                  <span className="text-green-400 shrink-0 mt-0.5">▪</span>
+                  {t}
+                </li>
+              ))}
+            </ul>
+
+            <button
+              onClick={() => setSuccessOpen(false)}
+              className="w-full pixel-btn py-3 font-bold text-white"
+              style={{ background: "hsl(120,50%,22%)", fontFamily: "'Press Start 2P', monospace", fontSize: 9 }}
+            >
+              OK, ПОНЯЛ!
+            </button>
           </div>
         </div>
       )}
