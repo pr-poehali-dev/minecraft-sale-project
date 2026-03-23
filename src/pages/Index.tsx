@@ -130,10 +130,7 @@ export default function Index() {
 
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-4 pt-14 pb-10 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 text-green-300 glow-green"
-          style={{ background: "rgba(45,90,26,0.35)", border: "2px solid #2d5a1a", fontFamily: "'Press Start 2P', monospace", fontSize: 8 }}>
-          ▶ СЕРВЕР ОНЛАЙН · 247 игроков
-        </div>
+
         <h1 className="font-pixel text-white mb-4" style={{
           fontFamily: "'Press Start 2P', monospace",
           fontSize: "clamp(18px, 5vw, 36px)",
