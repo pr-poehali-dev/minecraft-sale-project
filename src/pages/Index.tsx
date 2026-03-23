@@ -99,6 +99,16 @@ export default function Index() {
             </div>
           </div>
 
+          <a
+            href="https://t.me/mckukurulishna_4"
+            target="_blank"
+            rel="noreferrer"
+            className="hidden sm:flex pixel-btn px-3 py-2 items-center gap-2 text-white text-xs font-semibold"
+            style={{ background: "#1a6fa8", borderColor: "#5ab4e8 #0d3a60 #0d3a60 #5ab4e8" }}
+          >
+            ✈️ <span>Поддержка</span>
+          </a>
+
           <button
             onClick={() => setCartOpen(true)}
             className="relative pixel-btn px-4 py-2 flex items-center gap-2 text-white text-sm font-semibold"
@@ -343,12 +353,21 @@ export default function Index() {
               ))}
             </ul>
 
+            <a
+              href="https://t.me/mckukurulishna_4"
+              target="_blank"
+              rel="noreferrer"
+              className="w-full pixel-btn py-3 font-bold text-white flex items-center justify-center gap-2"
+              style={{ background: "#1a6fa8", borderColor: "#5ab4e8 #0d3a60 #0d3a60 #5ab4e8", fontFamily: "'Press Start 2P', monospace", fontSize: 9 }}
+            >
+              ✈️ НАПИСАТЬ В ПОДДЕРЖКУ
+            </a>
+
             <button
               onClick={() => setSuccessOpen(false)}
-              className="w-full pixel-btn py-3 font-bold text-white"
-              style={{ background: "hsl(120,50%,22%)", fontFamily: "'Press Start 2P', monospace", fontSize: 9 }}
+              className="w-full py-2 text-xs text-gray-500 hover:text-gray-300 transition-colors"
             >
-              OK, ПОНЯЛ!
+              Закрыть
             </button>
           </div>
         </div>
