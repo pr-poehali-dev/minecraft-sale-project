@@ -68,6 +68,8 @@ export default function Index() {
   const [cartOpen, setCartOpen] = useState(false);
   const [addedId, setAddedId] = useState<number | null>(null);
   const [successOpen, setSuccessOpen] = useState(false);
+  const [nickOpen, setNickOpen] = useState(false);
+  const [nick, setNick] = useState("");
 
   const addToCart = (item: DonateItem) => {
     setCart((prev) => {
@@ -315,7 +317,7 @@ export default function Index() {
                   </span>
                 </div>
                 <button
-                  onClick={() => { setCartOpen(false); setCart([]); setSuccessOpen(true); }}
+                  onClick={() => { setCartOpen(false); setNickOpen(true); }}
                   className="w-full pixel-btn pixel-btn-gold py-3 font-bold text-black"
                   style={{ background: "#c8920a", fontFamily: "'Press Start 2P', monospace", fontSize: 9 }}
                 >
@@ -323,6 +325,58 @@ export default function Index() {
                 </button>
               </div>
             )}
+          </div>
+        </div>
+      )}
+      {/* Nick Modal */}
+      {nickOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ background: "rgba(0,0,0,0.75)" }}>
+          <div className="fade-in-up w-full max-w-sm flex flex-col items-center text-center p-8 gap-5"
+            style={{
+              background: "hsl(120,20%,9%)",
+              border: "3px solid",
+              borderColor: "#2d5a1a #1a3a0a #1a3a0a #2d5a1a",
+              boxShadow: "inset 2px 2px 0 rgba(255,255,255,0.08), inset -2px -2px 0 rgba(0,0,0,0.4), 0 0 40px rgba(45,90,26,0.25), 6px 6px 0 rgba(0,0,0,0.7)",
+            }}>
+            <div className="text-5xl">🎮</div>
+            <div style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 11, color: "#7ab84a", textShadow: "2px 2px 0 #1a3a0a", lineHeight: 2 }}>
+              НИК ИГРОКА
+            </div>
+            <p className="text-gray-400 text-xs leading-relaxed">
+              Введи свой ник в Minecraft, чтобы донат пришёл на правильный аккаунт
+            </p>
+            <input
+              type="text"
+              value={nick}
+              onChange={(e) => setNick(e.target.value)}
+              placeholder="Твой_ник"
+              className="w-full px-4 py-3 text-white text-sm outline-none"
+              style={{
+                background: "rgba(0,0,0,0.4)",
+                border: "2px solid #2d5a1a",
+                fontFamily: "monospace",
+                caretColor: "#7ab84a",
+              }}
+            />
+            <button
+              disabled={!nick.trim()}
+              onClick={() => { setNickOpen(false); setCart([]); setSuccessOpen(true); }}
+              className="w-full pixel-btn pixel-btn-gold py-3 font-bold text-black"
+              style={{
+                background: nick.trim() ? "#c8920a" : "#555",
+                fontFamily: "'Press Start 2P', monospace",
+                fontSize: 9,
+                cursor: nick.trim() ? "pointer" : "not-allowed",
+              }}
+            >
+              ⚡ ПЕРЕЙТИ К ОПЛАТЕ
+            </button>
+            <button
+              onClick={() => { setNickOpen(false); setCartOpen(true); }}
+              className="w-full py-2 text-xs text-gray-500 hover:text-gray-300 transition-colors"
+            >
+              Назад
+            </button>
           </div>
         </div>
       )}
