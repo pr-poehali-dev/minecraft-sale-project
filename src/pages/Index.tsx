@@ -140,6 +140,21 @@ export default function Index() {
         }}>
           ДОНАТ<br /><span className="text-green-400">МАГАЗИН</span>
         </h1>
+        <div className="inline-flex items-center gap-3 my-3 px-4 py-2.5 cursor-pointer group"
+          style={{ background: "hsl(120,15%,12%)", border: "3px solid", borderColor: "#5a8a3a #2d5a1a #2d5a1a #5a8a3a", boxShadow: "3px 3px 0 rgba(0,0,0,0.5)" }}
+          onClick={() => navigator.clipboard.writeText("stmtnholodo.aternos.me")}
+          title="Нажми чтобы скопировать"
+        >
+          <span className="text-lg">🖥️</span>
+          <div className="text-left">
+            <p className="text-gray-500 text-xs mb-0.5">Адрес сервера</p>
+            <p className="text-green-300 font-bold text-sm group-hover:text-green-200 transition-colors" style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 10 }}>
+              stmtnholodo.aternos.me
+            </p>
+          </div>
+          <span className="text-gray-500 text-xs ml-1 group-hover:text-gray-300 transition-colors">📋</span>
+        </div>
+
         <p className="text-gray-400 max-w-md mx-auto text-sm leading-relaxed">
           Расширь возможности на сервере. Покупки применяются мгновенно — без ожидания.
         </p>
